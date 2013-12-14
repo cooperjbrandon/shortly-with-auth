@@ -8,4 +8,15 @@
   </li>
 </ul>
 
+<h2>Short.ly Search</h2>
 
+<form ng-submit="createLink()">
+  <input type="text" placeholder="Type to search for links" ng-model="searchText" />
+</form>
+<ul>
+  <li ng-repeat='link in links | filter:searchText'>
+    <a ng-href="{{ link.base_url }}/{{ link.code }}">
+      <h4>{{ link.title }}</h4>
+    </a>
+  </li>
+</ul>
