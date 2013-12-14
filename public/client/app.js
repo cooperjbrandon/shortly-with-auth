@@ -14,8 +14,5 @@ angular.module('shortlyApp', [
     .otherwise({
       redirectTo: '/'
     });
-})
-// angular.module('shortlyApp') <-- getter
-.controller('MainController', function ($scope) /*<--,[$services]*/ {
-  $scope.name = 'Eric';
 });
+// angular.module('shortlyApp') <-- getter
