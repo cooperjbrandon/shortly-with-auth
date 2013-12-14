@@ -2,19 +2,26 @@
 
 <ul>
   <li ng-repeat='link in links track by link.id'>
-    <a ng-href="{{ link.base_url }}/{{ link.code }}">
+    <a ng-href="{{ link.base_url }}/{{ link.code }}" ng-click="updateRecent(link)">
       <h4>{{ link.title }}</h4>
     </a>
   </li>
 </ul>
 
+<pre>{{links | json}}</pre>
+
 <h2>Short.ly Search</h2>
 
-<form ng-submit="createLink()">
+<form>
   <input type="text" placeholder="Type to search for links" ng-model="searchText" />
 </form>
+<form>
+  <input type="button" ng-click="predicate = '-created_at'" value ="Recent Created"></input>
+  <input type="button" ng-click="predicate = 'recentClicks'" value ="Hottest"></input>
+  <input type="button" ng-click="predicate = '-visits'" value ="Popular"></input>
+</form>
 <ul>
-  <li ng-repeat='link in links | filter:searchText'>
+  <li ng-repeat='link in links | filter:searchText | orderBy:predicate'>
     <a ng-href="{{ link.base_url }}/{{ link.code }}">
       <h4>{{ link.title }}</h4>
     </a>
