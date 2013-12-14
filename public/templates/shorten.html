@@ -4,4 +4,4 @@
   <input type="url" ng-model="newLink.url" ng-pattern="/https?:\/\/www\.[\da-z]*\.(com)|(org)|(gov)/" required />
   <input type="submit" value="Shorten" ng-disabled="shortener.$invalid" />
 </form>
-
+<span>{{base}}{{shortenedLink}}</span>

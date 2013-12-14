@@ -32,6 +32,17 @@ angular.module('shortlyApp')
       method: 'POST',
       url: 'http://localhost:4567/links', //or url: /links
       data: $scope.newLink
+    })
+    .success(function () {
+      $http({
+        method: 'GET',
+        url: 'http://localhost:4567/links' //or url: /links
+      })
+      .success(function(data){
+        console.log(data);
+        $scope.shortenedLink = data[0].code;
+        $scope.base = data[0].base_url + '/';
+      });
     });
   };
   $scope.newLink = {
