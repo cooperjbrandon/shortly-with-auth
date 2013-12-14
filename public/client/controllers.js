@@ -27,6 +27,7 @@ angular.module('shortlyApp')
 })
 .controller('ShortenController', function ($scope, $http) {
   $scope.createLink = function () {
+    $scope.submitted =  true;
     $http({
       method: 'POST',
       url: 'http://localhost:4567/links', //or url: /links
