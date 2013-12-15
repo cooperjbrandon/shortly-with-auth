@@ -48,4 +48,9 @@ angular.module('shortlyApp')
   $scope.newLink = {
     url: ''
   };
+})
+.contoller('LoginController', function ($scope, $http) {
+  $scope.login = function () {
+    console.log('logging in');
+  };
 });
